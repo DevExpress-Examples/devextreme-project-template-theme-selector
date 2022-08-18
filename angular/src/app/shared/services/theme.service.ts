@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ThemeService {
-
+    storageKey = "themeViewerAngular";
     getTheme(){
-        return window.localStorage["salesViewerTheme"]
+        return window.localStorage[this.storageKey]
     }
 
     getThemeData(){
@@ -18,9 +18,9 @@ export class ThemeService {
     }
 
     applyTheme(theme?: string) {
-        let themeMarker = "dx.theme.material.",
-            storageKey = "salesViewerTheme";
-        theme = theme || window.localStorage[storageKey] || "orange.light";
+        let themeMarker = "dx.theme.material.";
+            
+        theme = theme || window.localStorage[this.storageKey] || "orange.light";
 
         for(let index in document.styleSheets) {
             let styleSheet = document.styleSheets[index],
@@ -36,7 +36,7 @@ export class ThemeService {
             }
         }
         
-        window.localStorage[storageKey] = theme;
+        window.localStorage[this.storageKey] = theme;
         currentTheme('material.' + theme);
         refreshTheme();
     }
