@@ -16,6 +16,7 @@ This sample demonstrates how to do this via a drop-down editor ([SelectBox](http
 ## Files to Look At
 
 - **Angular**
+    - [index.html](angular/src/index.html)
     - [theme.service.ts](angular/src/app/shared/services/theme.service.ts)
     - [theme-selector.component.ts](angular/src/app/shared/components/theme-selector/theme-selector.component.ts)
     - [theme-selector.component.html](angular/src/app/shared/components/theme-selector/theme-selector.component.html)
