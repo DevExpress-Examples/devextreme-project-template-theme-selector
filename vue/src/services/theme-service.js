@@ -1,7 +1,7 @@
 import { currentTheme, refreshTheme } from 'devextreme/viz/themes';
 
 export default {
-    storageKey: "themeViewerAngular",
+    storageKey: "themeViewer",
     
     getTheme(){
         return window.localStorage[this.storageKey]
