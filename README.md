@@ -21,14 +21,14 @@ This sample demonstrates how to do this via a drop-down editor ([SelectBox](http
     - [theme-selector.component.ts](angular/src/app/shared/components/theme-selector/theme-selector.component.ts)
     - [theme-selector.component.html](angular/src/app/shared/components/theme-selector/theme-selector.component.html)
     - [app.component.ts](angular/src/app/app.component.ts)
-    - [angular.json](angular/angular.json) - Add new themes.
+    - [angular.json](angular/angular.json)
  - **Vue**
     - [theme-service.js](vue/src/services/theme-service.js)
     - [App.vue](vue/src/App.vue)
     - [theme-selector.vue](vue/src/components/theme-selector.vue)
     - 
-    - [main.js](vue/src/main.js) - Delete base theme.
-    - [public](vue/public) - Here you should save files with new themes.
+    - [main.js](vue/src/main.js)
+    - [public](vue/public)
 
 
 ## Documentation
