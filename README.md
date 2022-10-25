@@ -26,7 +26,6 @@ This sample demonstrates how to do this via a drop-down editor ([SelectBox](http
     - [theme-service.js](vue/src/services/theme-service.js)
     - [App.vue](vue/src/App.vue)
     - [theme-selector.vue](vue/src/components/theme-selector.vue)
-    - 
     - [main.js](vue/src/main.js)
     - [public](vue/public)
 
