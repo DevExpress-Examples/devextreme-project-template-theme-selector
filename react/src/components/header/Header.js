@@ -4,7 +4,7 @@ import Button from 'devextreme-react/button';
 import UserPanel from '../user-panel/UserPanel';
 import './Header.scss';
 import { Template } from 'devextreme-react/core/template';
-import ThemeSelector from '../theme-selector/ThemeSelector';
+import { ThemeSelector } from '../theme-selector/ThemeSelector';
 
 
 export default function Header({ menuToggleEnabled, title, toggleMenu }) {

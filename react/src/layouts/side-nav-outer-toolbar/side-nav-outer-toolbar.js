@@ -43,7 +43,6 @@ export default function SideNavOuterToolbar({ title, children }) {
         ? MenuStatus.Closed
         : prevMenuStatus
     );
-    return true;
   }, [isLarge]);
 
   const onNavigationChanged = useCallback(({ itemData, event, node }) => {

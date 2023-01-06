@@ -7,16 +7,15 @@ import './dx-styles.scss';
 import LoadPanel from 'devextreme-react/load-panel';
 import { NavigationProvider } from './contexts/navigation';
 import { AuthProvider, useAuth } from './contexts/auth';
+import { ThemeProvider, useTheme } from './contexts/theme';
 import { useScreenSizeClass } from './utils/media-query';
 import Content from './Content';
 import UnauthenticatedContent from './UnauthenticatedContent';
-import ThemeService from './utils/theme-service';
 
 function App() {
   const { user, loading } = useAuth();
-  useEffect(()=>{
-    ThemeService.applyTheme()
-  }, [])
+  const { setTheme, getTheme } = useTheme();
+  useEffect(() => setTheme(getTheme()), [setTheme, getTheme]);
   if (loading) {
     return <LoadPanel visible={true} />;
   }
@@ -33,13 +32,15 @@ export default function Root() {
 
   return (
     <Router>
-      <AuthProvider>
-        <NavigationProvider>
-          <div className={`app ${screenSizeClass}`}>
-            <App />
-          </div>
-        </NavigationProvider>
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <NavigationProvider>
+            <div className={`app ${screenSizeClass}`}>
+              <App />
+            </div>
+          </NavigationProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </Router>
   );
 }
