@@ -1,6 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
 
-
 export const useScreenSize = () => {
   const [screenSize, setScreenSize] = useState(getScreenSize());
   const onSizeChanged = useCallback(() => {
@@ -43,7 +42,7 @@ const mediumMedia = window.matchMedia('(min-width: 960px) and (max-width: 1279.9
 const largeMedia = window.matchMedia('(min-width: 1280px)');
 
 [xSmallMedia, smallMedia, mediumMedia, largeMedia].forEach(media => {
-  media.addListener((e) => {
+  media.addEventListener("change", (e) => {
     e.matches && handlers.forEach(handler => handler());
   });
 });

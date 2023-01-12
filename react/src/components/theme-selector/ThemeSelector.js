@@ -1,24 +1,23 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import SelectBox from 'devextreme-react/select-box';
-import ThemeService from '../../utils/theme-service'
+import { useTheme } from '../../contexts/theme';
 
-
-export default function ThemeSelector() {
-  let themes = ThemeService.getThemeData()
-  let currentTheme = ThemeService.getTheme()
-
-  let onValueChanged = (e)=>{
-    ThemeService.applyTheme(e.value)
-  }
+export function ThemeSelector() {
+  const { getTheme, getThemeData, setTheme } = useTheme();
+  const themes = getThemeData();
+  const currentTheme = getTheme();
+  let onValueChanged = useCallback((e) => {
+    setTheme(e.value)
+  }, [setTheme]);
   return (
     <div className={'theme-selector'}>
-        <SelectBox
-            items={themes}
-            value={currentTheme}
-            valueExpr="value"
-            displayExpr="text"
-            onValueChanged={onValueChanged}
-        ></SelectBox>
+      <SelectBox
+        items={themes}
+        value={currentTheme}
+        valueExpr="value"
+        displayExpr="text"
+        onValueChanged={onValueChanged}
+      ></SelectBox>
     </div>
   );
 }
