@@ -3,8 +3,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-
-# How to implement Theme Selector for the DevExtreme Project Template
+# Selector for DevExtreme - How to implement Theme Selector for the DevExtreme Project Template
 
 The DevExtreme Project Template has two default themes: `base` and `swatch`. You can change the base theme to another Material theme at runtime. You can switch between themes using the StyleSheet API. For this, disable all loaded theme stylesheet links excluding the active one.
 
@@ -13,7 +12,9 @@ This sample demonstrates how to do this via a drop-down editor ([SelectBox](http
 - [dx-theme-background-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color)
 - [dx-theme-text-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color)
 
-## Files to Look At
+<div align="center"><img alt="Selector for DevExtreme - How to implement Theme Selector for the DevExtreme Project Template" src="theme-selector-for-template.png" /></div>
+
+## Files to Review
 
 - **Angular**
     - [index.html](angular/src/index.html)
@@ -28,7 +29,8 @@ This sample demonstrates how to do this via a drop-down editor ([SelectBox](http
     - [theme-selector.vue](vue/src/components/theme-selector.vue)
     - [main.js](vue/src/main.js)
     - [public](vue/public)
-
+ - **React**
+    - [App.js](react/src/App.js)
 
 ## Documentation
 
