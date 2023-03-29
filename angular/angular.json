@@ -51,9 +51,11 @@
             ],
             "styles": [
               "node_modules/devextreme/dist/css/dx.common.css",
-              "src/themes/generated/theme.additional.css",
               "src/dx-styles.scss",
               "src/styles.scss",
+              "src/themes/generated/variables.css",
+              { "input": "src/themes/generated/theme.additional.dark.css", "bundleName": "dx.theme.material.additional.dark" },
+              { "input": "src/themes/generated/theme.additional.light.css", "bundleName": "dx.theme.material.additional.light" },
               { "input": "src/themes/generated/theme.base.css", "bundleName": "dx.theme.material.orange.light" },
               { "input": "node_modules/devextreme/dist/css/dx.material.blue.light.css", "bundleName": "dx.theme.material.blue.light" },
               { "input": "node_modules/devextreme/dist/css/dx.material.purple.light.css", "bundleName": "dx.theme.material.purple.light" },

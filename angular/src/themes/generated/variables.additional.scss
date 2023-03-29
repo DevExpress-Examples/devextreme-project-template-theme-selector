@@ -1,5 +1,6 @@
-$base-accent: #ff5722;
+$base-accent: var(--base-accent);
 $base-text-color: #ffffff;
-$base-bg: #363640;
-$base-border-color: #515159;
+$base-bg: var(--base-bg);
+$base-border-color: var(--base-border-color);
 $base-border-radius: 4px;
+$icon-color: var(--icon-color);
