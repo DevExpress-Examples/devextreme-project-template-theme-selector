@@ -1,0 +1,43 @@
+
+
+:root {
+    --base-accent: #ff5722;
+    --base-bg: rgba(0, 0, 0, 0.16);
+    --base-border-color: #F3F3F3;
+    --icon-color: rgba(0, 0, 0, 0.54);
+  }
+
+
+
+  @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
+  @import url(https://fonts.googleapis.com/earlyaccess/notokufiarabic.css);
+  @font-face {
+    font-family: RobotoFallback;
+    font-style: normal;
+    font-weight: 300;
+    src: local("Roboto Light"),local("Roboto-Light"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-300.woff2") format("woff2"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-300.woff") format("woff"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-300.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: RobotoFallback;
+    font-style: normal;
+    font-weight: 400;
+    src: local("Roboto"),local("Roboto-Regular"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-400.woff2") format("woff2"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-400.woff") format("woff"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-400.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: RobotoFallback;
+    font-style: normal;
+    font-weight: 500;
+    src: local("Roboto Medium"),local("Roboto-Medium"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-500.woff2") format("woff2"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-500.woff") format("woff"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-500.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: RobotoFallback;
+    font-style: normal;
+    font-weight: 700;
+    src: local("Roboto Bold"),local("Roboto-Bold"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-700.woff2") format("woff2"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-700.woff") format("woff"),url("../../../node_modules/devextreme/dist/css/fonts/Roboto-700.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: DXIcons;
+    src: local("DevExtreme Material Icons"),local("devextreme_material_icons"),url("../../../node_modules/devextreme/dist/css/icons/dxiconsmaterial.woff2") format("woff2"),url("../../../node_modules/devextreme/dist/css/icons/dxiconsmaterial.woff") format("woff"),url("../../../node_modules/devextreme/dist/css/icons/dxiconsmaterial.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }

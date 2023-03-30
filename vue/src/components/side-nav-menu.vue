@@ -136,6 +136,7 @@ export default {
         .dx-icon {
           width: $side-panel-min-width !important;
           margin: 0 !important;
+          color: $icon-color
         }
       }
       // ##
@@ -184,7 +185,7 @@ export default {
           }
 
           &:not(.dx-state-focused) > .dx-treeview-item.dx-state-hover {
-            background-color: lighten($base-bg, 4);
+            background-color: $base-bg;
           }
         }
       }

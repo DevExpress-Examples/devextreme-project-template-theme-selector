@@ -1,4 +1,5 @@
-import './themes/generated/theme.additional.css';
+
+import './themes/generated/variables.css';
 
 import { createApp }  from "vue";
 import router from "./router";
