@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DxSelectBoxModule } from 'devextreme-angular/ui/select-box';
+import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -26,7 +27,8 @@ import { ThemeService } from '../../services/theme.service';
   @NgModule({
     imports: [
       CommonModule,
-      DxSelectBoxModule
+      DxSelectBoxModule,
+      DxTextBoxModule
     ],
     declarations: [ ThemeSelectorComponent ],
     exports: [ ThemeSelectorComponent ]

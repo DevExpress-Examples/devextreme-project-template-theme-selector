@@ -11,7 +11,7 @@
         <router-view></router-view>
       </div>
         <template #footer>
-          <app-footer />
+          <app-footer class="dx-theme-text-color"/>
         </template>
       </component>
     </div>

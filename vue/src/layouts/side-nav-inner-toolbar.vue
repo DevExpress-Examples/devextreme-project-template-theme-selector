@@ -28,7 +28,7 @@
           @click="handleSideBarClick"
         >
           <dx-toolbar id="navigation-header">
-            <dx-item v-if="!isXSmall" location="before" css-class="menu-button">
+            <dx-item v-if="!isXSmall" location="before" css-class="dx-theme-text-color">
               <template #default>
               <dx-button
                 icon="menu"
