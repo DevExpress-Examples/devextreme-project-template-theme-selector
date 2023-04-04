@@ -5,13 +5,16 @@ import { useTheme } from '../../contexts/theme';
 import './ThemeSelector.scss';
 
 
+const TextBoxInputAttr = {class:'dx-theme-text-color theme-textbox' }
+const DropDownOptions = {wrapperAttr: {class: 'selectboxDropdown'} }
+
 const fieldRender = (data)=>{
   return ( 
   <div className={"custom-item"}>
     <img className={"theme-icon"} src={data.ImageSrc} />
     <TextBox
         width="80px"
-        inputAttr={{class:'dx-theme-text-color theme-textbox' }}
+        inputAttr={TextBoxInputAttr}
         value={data.text}
         readOnly={true}
       />
@@ -51,7 +54,7 @@ export function ThemeSelector() {
         fieldRender={fieldRender}
         itemRender={itemRender}
         deferRendering={false}
-        dropDownOptions={{wrapperAttr: {class: 'selectboxDropdown'} }}
+        dropDownOptions={DropDownOptions}
       ></SelectBox>
     </div>
   );
