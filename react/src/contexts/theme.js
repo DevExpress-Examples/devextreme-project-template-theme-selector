@@ -20,7 +20,7 @@ function ThemeProvider({ theme, ...props }) {
     const getTheme = useCallback(() => _theme || window.localStorage[storageKey] || "orange.light", 
     [_theme]);
 
-    function applyBaseTheme(theme, themeMarker){
+    const applyBaseTheme = useCallback((theme, themeMarker)=>{
         for(let index in document.styleSheets) {
             let styleSheet = document.styleSheets[index],
                 href = styleSheet.href;
@@ -43,9 +43,9 @@ function ThemeProvider({ theme, ...props }) {
                 }
             }
         }
-    }
+    },[])
 
-    function applySwatchVariables(accent){
+    const applySwatchVariables = useCallback((accent)=>{
         if (accent === 'light') {
             document.documentElement.style.setProperty('--base-border-color',"#F3F3F3")
             document.documentElement.style.setProperty('--base-bg',"rgba(0, 0, 0, 0.16)")
@@ -55,10 +55,10 @@ function ThemeProvider({ theme, ...props }) {
             document.documentElement.style.setProperty('--base-bg',"rgba(255, 255, 255, 0.10)")
             document.documentElement.style.setProperty('--icon-color',"rgba(255, 255, 255, 0.87)")
         }
-    }
+    },[])
 
 
-    function applySwatchTheme(accent, themeMarker){
+    const applySwatchTheme = useCallback((accent, themeMarker)=>{
         for(let index in document.styleSheets) {
             let styleSheet = document.styleSheets[index],
                 href = styleSheet.href;
@@ -73,7 +73,7 @@ function ThemeProvider({ theme, ...props }) {
                 }
             }
         }
-    }
+    },[])
 
     const applyTheme = useCallback((theme) => {
         theme = getTheme();
