@@ -1,6 +1,4 @@
-//import 'devextreme/dist/css/dx.common.css';
-//import './themes/generated/theme.base.css';
-import './themes/generated/theme.additional.css';
+import './themes/generated/variables.css';
 import React, { useEffect } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import './dx-styles.scss';
