@@ -6,8 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-themes": "devextreme build",
-    "postinstall": "npm run build-themes"
+    "build-themes": "devextreme build"
   },
   "dependencies": {
     "core-js": "^3.8.3",
