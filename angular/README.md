@@ -1,3 +1,14 @@
+# The Angular specific part of Theme Selector implementation
+
+Themes should be declared in the [angular.json](angular/angular.json) file. Also, in this file should be declared an asset folder, where all icons in svg format placed. The optimization configuration for styles should be like following:
+
+```
+"styles": {
+    "minify": true,
+    "inlineCritical": false
+},
+```
+
 # AppName
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.2.
