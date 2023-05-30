@@ -32,6 +32,8 @@ This sample demonstrates how to do this via a drop-down editor ([SelectBox](http
     - [public](vue/public)
  - **React**
     - [App.js](react/src/App.js)
+    - [ThemeSelector.js](react/src/components/theme-selector/ThemeSelector.js)
+    - [theme.js](/react/src/contexts/theme.js)
 
 ## Documentation
 
