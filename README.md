@@ -5,7 +5,7 @@
 
 # Selector for DevExtreme - How to implement Theme Selector for the DevExtreme Project Template
 
-The DevExtreme Project Template has two default themes: `base` and `swatch`. You can change the base theme to another Material theme at runtime. You can switch between themes using the StyleSheet API. For this, disable all loaded theme stylesheet links excluding the active one. 
+The DevExtreme Project Template has two default themes: `base` and `swatch`. You can change the base theme to another Material theme at runtime. To switch between themes, use the StyleSheet API. For this, disable all loaded theme stylesheet links excluding the active one. 
 
 The DevExtreme Project Template has several places where the SCSS variables used to change the color. To have the same color as main theme we use CSS variables and change them.
 
