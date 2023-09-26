@@ -1,3 +1,13 @@
+# The React specific part of Theme Selector implementation
+
+The [variables.css](react/src/themes/generated/variables.css) should be declared in [main.js](react/src/App.js) file. 
+The following configuration row should be deleted: `"postinstall": "npm run build-themes"` from [package.json](react/package.json) 
+Themes and icons should be added to [public](react/public) folder. Themes should be imported in [index.html](react/public/index.html) using the following syntax:
+```
+<link rel="stylesheet" href="%PUBLIC_URL%/dx.material.blue.light.css"/>
+```
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
