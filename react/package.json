@@ -13,8 +13,8 @@
     "sass": "^1.34.1",
     "react-router-dom": "^6.3.0",
     "react-app-polyfill": "^1.0.0",
-    "devextreme": "22.1.11",
-    "devextreme-react": "22.1.11"
+    "devextreme": "22.1.12",
+    "devextreme-react": "22.1.12"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,6 +43,6 @@
   },
   "devDependencies": {
     "devextreme-cli": "1.4.2",
-    "devextreme-themebuilder": "22.1.11"
+    "devextreme-themebuilder": "22.1.12"
   }
 }
