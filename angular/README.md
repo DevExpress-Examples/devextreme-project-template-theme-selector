@@ -1,6 +1,6 @@
 # The Angular specific part of Theme Selector implementation
 
-Themes should be declared in the [angular.json](angular/angular.json) file. In this file, you should declare an asset folder, where all icons store in svg format . In the example below, you can see the optimization configuration for styles:
+Themes should be declared in the [angular.json](angular/angular.json) file. In this file, you should declare an asset folder where all icons are stored in SVG format. In the example below, you can see the optimization configuration for styles:
 
 ```
 "styles": {
@@ -8,6 +8,10 @@ Themes should be declared in the [angular.json](angular/angular.json) file. In t
     "inlineCritical": false
 },
 ```
+
+This application uses file names to process Stylesheets, so you should not specify the `outputHashing` option (which changes CSS file names). In this example, we used `outputHashing: media`.
+
+Usually, `variables.base.scss` and `variables.additional.scss` files are generated automatically. In this example, we had to configure them manually to redefine SCSS variables based on the CSS ones (we created the `variables.css` file to define the CSS variables). Unfortunately, a tool to generate such files does not exist. You need to configure the variables to apply custom styles to this example.
 
 # AppName
 
