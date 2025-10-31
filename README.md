@@ -24,38 +24,38 @@ npx devextreme-cli build-theme --base-theme="material.blue.light" --output-file=
 npx devextreme-cli build-theme --base-theme="material.blue.dark" --output-file="theme.additional.dark" --make-swatch --assetsBasePath="../../../node_modules/devextreme/dist/css" --output-color-scheme="additional"
 ```
 
-<div align="center"><img alt="Selector for DevExtreme - How to implement Theme Selector for the DevExtreme Project Template" src="theme-selector-for-template.png" /></div>
+<div align="center"><img alt="Selector for DevExtreme - How to implement Theme Selector for the DevExtreme Project Template" src="images/theme-selector-for-template.png" /></div>
 
 ## Files to Review
 
 - **Angular**
-    - [index.html](angular/src/index.html)
-    - [theme.service.ts](angular/src/app/shared/services/theme.service.ts)
-    - [theme-selector.component.ts](angular/src/app/shared/components/theme-selector/theme-selector.component.ts)
-    - [theme-selector.component.html](angular/src/app/shared/components/theme-selector/theme-selector.component.html)
-    - [app.component.ts](angular/src/app/app.component.ts)
-    - [variables.css](angular/src/themes/generated/variables.css)
-    - [variables.base.scss](angular/src/themes/generated/variables.base.scss)
-    - [variables.additional.scss](angular/src/themes/generated/variables.additional.scss)
-    - [angular.json](angular/angular.json)
+    - [index.html](Angular/src/index.html)
+    - [theme.service.ts](Angular/src/app/shared/services/theme.service.ts)
+    - [theme-selector.component.ts](Angular/src/app/shared/components/theme-selector/theme-selector.component.ts)
+    - [theme-selector.component.html](Angular/src/app/shared/components/theme-selector/theme-selector.component.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
+    - [variables.css](Angular/src/themes/generated/variables.css)
+    - [variables.base.scss](Angular/src/themes/generated/variables.base.scss)
+    - [variables.additional.scss](Angular/src/themes/generated/variables.additional.scss)
+    - [angular.json](Angular/angular.json)
  - **Vue**
-    - [theme-service.js](vue/src/services/theme-service.js)
-    - [App.vue](vue/src/App.vue)
-    - [theme-selector.vue](vue/src/components/theme-selector.vue)
-    - [main.js](vue/src/main.js)
-    - [variables.css](vue/src/themes/generated/variables.css)
-    - [variables.base.scss](vue/src/themes/generated/variables.base.scss)
-    - [variables.additional.scss](vue/src/themes/generated/variables.additional.scss)
-    - [public](vue/public)
+    - [theme-service.js](Vue/src/services/theme-service.js)
+    - [App.vue](Vue/src/App.vue)
+    - [theme-selector.vue](Vue/src/components/theme-selector.vue)
+    - [main.js](Vue/src/main.js)
+    - [variables.css](Vue/src/themes/generated/variables.css)
+    - [variables.base.scss](Vue/src/themes/generated/variables.base.scss)
+    - [variables.additional.scss](Vue/src/themes/generated/variables.additional.scss)
+    - [public](Vue/public)
  - **React**
-    - [App.js](react/src/App.js)
-    - [variables.css](react/src/themes/generated/variables.css)
-    - [variables.base.scss](react/src/themes/generated/variables.base.scss)
-    - [variables.additional.scss](react/src/themes/generated/variables.additional.scss)
-    - [theme-constants.js](react/src/utils/theme-constants.js)
-    - [theme.js](react/src/contexts/theme.js)
-    - [ThemeSelector.js](react/src/components/theme-selector/ThemeSelector.js)
-    - [public](react/public/)
+    - [App.js](React/src/App.js)
+    - [variables.css](React/src/themes/generated/variables.css)
+    - [variables.base.scss](React/src/themes/generated/variables.base.scss)
+    - [variables.additional.scss](React/src/themes/generated/variables.additional.scss)
+    - [theme-constants.js](React/src/utils/theme-constants.js)
+    - [theme.js](React/src/contexts/theme.js)
+    - [ThemeSelector.js](React/src/components/theme-selector/ThemeSelector.js)
+    - [public](React/public/)
 
 
 ## Documentation
