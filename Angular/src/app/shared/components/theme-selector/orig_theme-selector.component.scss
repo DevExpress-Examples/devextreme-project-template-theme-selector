@@ -1,0 +1,32 @@
+@import "../../../../dx-styles.scss";
+
+
+::ng-deep .selectboxDropdown .dx-list-item-content {
+    font-size: 16px;
+    padding: 0px;
+}
+
+
+.custom-item {
+    height:42px; 
+    display: flex; 
+    flex-direction: row; 
+    align-items: center;
+}
+
+.theme-icon {
+    height:24px; 
+    width:24px; 
+    margin-left:8px; 
+    margin-right:8px;
+}
+
+::ng-deep .dx-texteditor.dx-editor-outlined .dx-texteditor-input.theme-textbox {
+    font-size: 14px;
+    padding: 0px;
+}
+
+.theme-text {
+    font-size: 14px;
+    height: 17px;
+}

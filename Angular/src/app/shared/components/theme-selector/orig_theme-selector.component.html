@@ -1,0 +1,31 @@
+<dx-select-box
+    [items]="themeSource"
+    [value]="currentTheme"
+    valueExpr="value"
+    displayExpr="text"
+    width="145px"
+    (onValueChanged)="onValueChanged($event)"
+    stylingMode="outlined"
+    fieldTemplate="field"
+    [dropDownOptions]="{wrapperAttr: {class: 'selectboxDropdown'} }"
+>
+    <div *dxTemplate="let data of 'field'">
+        <div class="custom-item">
+            <img class="theme-icon" src="{{data.ImageSrc }}" />
+            <dx-text-box
+                width="80px"
+                [inputAttr]="{class:'dx-theme-text-color theme-textbox' }"
+                [value]="data.text"
+                [readOnly]="true"
+            ></dx-text-box>
+        </div>
+    </div>
+    <div *dxTemplate="let data of 'item'">
+        <div class="custom-item">
+            <img class="theme-icon" src="{{ data.ImageSrc }}" />
+            <div class="theme-text">
+                {{ data.text }}
+            </div>
+        </div>
+    </div>
+</dx-select-box>
