@@ -1,0 +1,19 @@
+@import "../../themes/variables.base.scss";
+
+.login-form {
+  .link {
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .form-text {
+    margin: 10px 0;
+    color: $base-text-color;
+    opacity: 0.7;
+  }
+}

@@ -1,18 +1,52 @@
-import { useCallback, useState } from 'react';
+// import 'devextreme/dist/css/dx.material.blue.light.compact.css';
+// import 'devextreme/dist/css/dx.material.orange.light.compact.css';
+// import 'devextreme/dist/css/dx.material.purple.light.compact.css';
+// import './themes/generated/theme.additional.css';
+
+// import './themes/generated/variables.css';
 import './App.css';
-import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import Button from 'devextreme-react/button';
+import { useEffect } from 'react';
+import { HashRouter as Router } from 'react-router-dom';
+import './dx-styles.scss';
+import LoadPanel from 'devextreme-react/load-panel';
+import { NavigationProvider } from './contexts/navigation';
+import { AuthProvider, useAuth } from './contexts/auth';
+import { ThemeProvider, useTheme } from './contexts/theme';
+import { useScreenSizeClass } from './utils/media-query';
+import Content from './Content';
+import UnauthenticatedContent from './UnauthenticatedContent';
 
 function App(): JSX.Element {
-  var [count, setCount] = useState<number>(0);
-  const clickHandler = useCallback(() => {
-    setCount((prev) => prev + 1);
-  }, [setCount]);
-  return (
-    <div className="main">
-      <Button text={`Click count: ${count}`} onClick={clickHandler} />
-    </div>
-  );
+  const { user, loading } = useAuth();
+  const { setTheme, getTheme } = useTheme();
+
+  useEffect(() => { setTheme(getTheme()); }, [setTheme, getTheme]);
+
+  if (loading) {
+    return <LoadPanel visible={true} />;
+  }
+
+  if (user) {
+    return <Content />;
+  }
+
+  return <UnauthenticatedContent />;
 }
 
-export default App;
+export default function Root(): JSX.Element {
+  const screenSizeClass = useScreenSizeClass();
+
+  return (
+    <Router>
+      <ThemeProvider>
+        <AuthProvider>
+          <NavigationProvider>
+            <div className={`app ${screenSizeClass}`}>
+              <App />
+            </div>
+          </NavigationProvider>
+        </AuthProvider>
+      </ThemeProvider>
+    </Router>
+  );
+}

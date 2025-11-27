@@ -9,7 +9,7 @@ module.exports = {
       es6: true
     },
     parserOptions: {
-      project: './tsconfig.json',
+      project: './React/tsconfig.json',
       'createDefaultProgram': true,
       ecmaVersion: 2022,
       sourceType: 'module',
@@ -23,7 +23,10 @@ module.exports = {
           "**/*.test.tsx",      // allow test files if needed
           "**/setupTests.ts", // allow setup tests file
         ]
-      }]
+      }],
+      "space-before-function-paren": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": ["error"]
     },
     globals: {
       System: false,
