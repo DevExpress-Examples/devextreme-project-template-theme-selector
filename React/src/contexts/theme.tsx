@@ -53,7 +53,6 @@ function ThemeProvider({ theme, ...props }: React.PropsWithChildren<{ theme?: st
               if (cssRule?.selectorText === '.dx-theme-accent-as-text-color') {
                 document.documentElement.style.setProperty('--base-accent', cssRule.style.color);
               }
-              debugger
               if (cssRule?.selectorText === '.dx-theme-text-color') {
                 document.documentElement.style.setProperty('--base-text-color', cssRule.style.color);
               }

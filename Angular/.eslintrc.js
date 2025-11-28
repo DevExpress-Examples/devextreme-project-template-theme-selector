@@ -9,7 +9,7 @@ module.exports = {
       es6: true
     },
     parserOptions: {
-      project: './tsconfig.json',
+      project: './Angular/tsconfig.json',
       'createDefaultProgram': true,
       'ecmaVersion': 6,
     },

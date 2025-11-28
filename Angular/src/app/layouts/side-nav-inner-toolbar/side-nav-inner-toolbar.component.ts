@@ -1,19 +1,24 @@
-import { Component, OnInit, NgModule, Input, ViewChild } from '@angular/core';
-import { SideNavigationMenuModule, HeaderModule } from '../../shared/components';
-import { ScreenService } from '../../shared/services';
+import {
+  Component,
+  OnInit,
+  NgModule,
+  Input,
+  ViewChild,
+} from '@angular/core';
 import { ItemClickEvent as TreeViewItemClickEvent } from 'devextreme/ui/tree_view';
 import { ItemClickEvent as ToolbarItemClickEvent } from 'devextreme/ui/toolbar';
 import { DxDrawerModule } from 'devextreme-angular/ui/drawer';
 import { DxScrollViewModule, DxScrollViewComponent } from 'devextreme-angular/ui/scroll-view';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { CommonModule } from '@angular/common';
-
 import { Router, NavigationEnd } from '@angular/router';
+import { SideNavigationMenuModule, HeaderModule } from '../../shared/components';
+import { ScreenService } from '../../shared/services';
 
 @Component({
   selector: 'app-side-nav-inner-toolbar',
   templateUrl: './side-nav-inner-toolbar.component.html',
-  styleUrls: ['./side-nav-inner-toolbar.component.scss']
+  styleUrls: ['./side-nav-inner-toolbar.component.scss'],
 })
 export class SideNavInnerToolbarComponent implements OnInit {
   @ViewChild(DxScrollViewComponent, { static: true }) scrollView!: DxScrollViewComponent;
