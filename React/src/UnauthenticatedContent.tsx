@@ -1,12 +1,17 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { SingleCard } from './layouts/index';
-import { LoginForm, ResetPasswordForm, ChangePasswordForm, CreateAccountForm } from './components';
+import {
+  LoginForm,
+  ResetPasswordForm,
+  ChangePasswordForm,
+  CreateAccountForm,
+} from './components';
 
-export default function UnauthenticatedContent() {
+export default function UnauthenticatedContent(): JSX.Element {
   return (
     <Routes>
       <Route
-        path='/login' 
+        path='/login'
         element={
           <SingleCard title="Sign In">
             <LoginForm />
@@ -21,7 +26,7 @@ export default function UnauthenticatedContent() {
           </SingleCard>
         }
       />
-      <Route 
+      <Route
         path='/reset-password'
         element={
           <SingleCard
@@ -40,7 +45,7 @@ export default function UnauthenticatedContent() {
           </SingleCard>
         }
       />
-      <Route path='*' element={<Navigate to={'/login'} />}></Route>
+      <Route path='*' element={<Navigate to='/login' />} />
     </Routes>
   );
 }

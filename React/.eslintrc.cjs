@@ -9,7 +9,8 @@ module.exports = {
       es6: true
     },
     parserOptions: {
-      project: './React/tsconfig.json',
+      project: './tsconfig.json',
+      tsconfigRootDir: __dirname,
       'createDefaultProgram': true,
       ecmaVersion: 2022,
       sourceType: 'module',
