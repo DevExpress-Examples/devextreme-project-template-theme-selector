@@ -6,7 +6,7 @@ import './ThemeSelector.scss';
 import type { ThemeData } from '../../types';
 
 const TextBoxInputAttr = { class: 'dx-theme-text-color theme-textbox' };
-const DropDownOptions = { wrapperAttr: { class: 'selectboxDropdown' } };
+const DropDownOptions = { wrapperAttr: { class: 'selectbox-dropdown' } };
 
 function fieldRender(data: ThemeData): JSX.Element {
   return (
