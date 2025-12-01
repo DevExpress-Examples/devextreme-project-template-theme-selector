@@ -1,4 +1,13 @@
+@use "../themes/variables.base" as *;
+
 .default-style {
   margin: 50px;
   width: 90vw;
+}
+
+:host {
+  background-color: $base-bg;
+  display: flex;
+  height: 100%;
+  width: 100%;
 }

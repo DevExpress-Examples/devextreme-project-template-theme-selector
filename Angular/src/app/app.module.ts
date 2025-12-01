@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { DxButtonModule } from 'devextreme-angular/ui/button';
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+import { SideNavOuterToolbarModule, SideNavInnerToolbarModule, SingleCardModule } from './layouts';
+import {
+  FooterModule, ResetPasswordFormModule, CreateAccountFormModule, ChangePasswordFormModule, LoginFormModule,
+} from './shared/components';
+import { AuthService, ScreenService, AppInfoService } from './shared/services';
+import { UnauthenticatedContentModule } from './unauthenticated-content';
+import { AppRoutingModule } from './app-routing.module';
+import { ThemeService } from './shared/services/theme.service';
 
 @NgModule({
   declarations: [
@@ -10,10 +17,23 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    SideNavOuterToolbarModule,
+    SideNavInnerToolbarModule,
+    SingleCardModule,
+    FooterModule,
+    ResetPasswordFormModule,
+    CreateAccountFormModule,
+    ChangePasswordFormModule,
+    LoginFormModule,
+    UnauthenticatedContentModule,
     AppRoutingModule,
-    DxButtonModule,
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    ScreenService,
+    AppInfoService,
+    ThemeService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

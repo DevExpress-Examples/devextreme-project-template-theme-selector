@@ -1,7 +1,7 @@
 import { currentTheme, refreshTheme } from 'devextreme/viz/themes';
 import { Injectable } from '@angular/core';
 
-interface ThemeData {
+export interface ThemeData {
   text: string;
   value: string;
   ImageSrc: string;
@@ -95,7 +95,9 @@ export class ThemeService {
           const startPosition = themeMarkerPosition + this.themeMarker.length;
           const endPosition = href.indexOf('.css');
           const fileNamePart = href.substring(startPosition, endPosition);
-          styleSheet.disabled = !(accent === fileNamePart.substring(fileNamePart.indexOf('.') + 1));
+          if (fileNamePart.includes('additional')) {
+            styleSheet.disabled = !(accent === fileNamePart.substring(fileNamePart.indexOf('.') + 1));
+          }
         }
       }
     }

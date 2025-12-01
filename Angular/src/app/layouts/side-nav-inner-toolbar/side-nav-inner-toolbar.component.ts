@@ -7,12 +7,12 @@ import {
 } from '@angular/core';
 import { ItemClickEvent as TreeViewItemClickEvent } from 'devextreme/ui/tree_view';
 import { ItemClickEvent as ToolbarItemClickEvent } from 'devextreme/ui/toolbar';
-import { DxDrawerModule } from 'devextreme-angular/ui/drawer';
+import { DxDrawerModule, DxDrawerTypes } from 'devextreme-angular/ui/drawer';
 import { DxScrollViewModule, DxScrollViewComponent } from 'devextreme-angular/ui/scroll-view';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd } from '@angular/router';
-import { SideNavigationMenuModule, HeaderModule } from '../../shared/components';
+import { SideNavigationMenuModule, HeaderModule } from '../../shared/components/index';
 import { ScreenService } from '../../shared/services';
 
 @Component({
@@ -22,25 +22,29 @@ import { ScreenService } from '../../shared/services';
 })
 export class SideNavInnerToolbarComponent implements OnInit {
   @ViewChild(DxScrollViewComponent, { static: true }) scrollView!: DxScrollViewComponent;
+
   selectedRoute = '';
 
   menuOpened!: boolean;
+
   temporaryMenuOpened = false;
 
-  @Input()
-  title!: string;
+  @Input() title!: string;
 
-  menuMode = 'shrink';
-  menuRevealMode = 'expand';
+  menuMode: DxDrawerTypes.OpenedStateMode = 'shrink';
+
+  menuRevealMode: DxDrawerTypes.RevealMode = 'expand';
+
   minMenuSize = 0;
+
   shaderEnabled = false;
 
-  constructor(private screen: ScreenService, private router: Router) { }
+  constructor(private readonly screen: ScreenService, private readonly router: Router) { }
 
-  ngOnInit() {
-    this.menuOpened = this.screen.sizes['screen-large'];
+  ngOnInit(): void {
+    this.menuOpened = this.screen.sizes.isLarge;
 
-    this.router.events.subscribe(val => {
+    this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
         this.selectedRoute = val.urlAfterRedirects.split('?')[0];
       }
@@ -51,9 +55,9 @@ export class SideNavInnerToolbarComponent implements OnInit {
     this.updateDrawer();
   }
 
-  updateDrawer() {
-    const isXSmall = this.screen.sizes['screen-x-small'];
-    const isLarge = this.screen.sizes['screen-large'];
+  updateDrawer(): void {
+    const isXSmall = this.screen.sizes.isXSmall;
+    const isLarge = this.screen.sizes.isLarge;
 
     this.menuMode = isLarge ? 'shrink' : 'overlap';
     this.menuRevealMode = isXSmall ? 'slide' : 'expand';
@@ -61,20 +65,20 @@ export class SideNavInnerToolbarComponent implements OnInit {
     this.shaderEnabled = !isLarge;
   }
 
-  toggleMenu = (e: ToolbarItemClickEvent) => {
+  toggleMenu = (e: ToolbarItemClickEvent): void => {
     this.menuOpened = !this.menuOpened;
     e.event?.stopPropagation();
-  }
+  };
 
-  get hideMenuAfterNavigation() {
+  get hideMenuAfterNavigation(): boolean {
     return this.menuMode === 'overlap' || this.temporaryMenuOpened;
   }
 
-  get showMenuAfterClick() {
+  get showMenuAfterClick(): boolean {
     return !this.menuOpened;
   }
 
-  navigationChanged(event: TreeViewItemClickEvent) {
+  navigationChanged(event: TreeViewItemClickEvent): void {
     const path = (event.itemData as any).path;
     const pointerEvent = event.event;
 
@@ -82,8 +86,10 @@ export class SideNavInnerToolbarComponent implements OnInit {
       if (event.node?.selected) {
         pointerEvent?.preventDefault();
       } else {
-        this.router.navigate([path]);
-        this.scrollView.instance.scrollTo(0);
+        this.router.navigate([path]).then(
+          () => this.scrollView.instance.scrollTo(0),
+          () => { /* Handle navigation error if needed */ },
+        );
       }
 
       if (this.hideMenuAfterNavigation) {
@@ -96,7 +102,7 @@ export class SideNavInnerToolbarComponent implements OnInit {
     }
   }
 
-  navigationClick() {
+  navigationClick(): void {
     if (this.showMenuAfterClick) {
       this.temporaryMenuOpened = true;
       this.menuOpened = true;
@@ -105,8 +111,8 @@ export class SideNavInnerToolbarComponent implements OnInit {
 }
 
 @NgModule({
-  imports: [ SideNavigationMenuModule, DxDrawerModule, HeaderModule, DxToolbarModule, DxScrollViewModule, CommonModule ],
-  exports: [ SideNavInnerToolbarComponent ],
-  declarations: [ SideNavInnerToolbarComponent ]
+  imports: [SideNavigationMenuModule, DxDrawerModule, HeaderModule, DxToolbarModule, DxScrollViewModule, CommonModule],
+  exports: [SideNavInnerToolbarComponent],
+  declarations: [SideNavInnerToolbarComponent],
 })
 export class SideNavInnerToolbarModule { }

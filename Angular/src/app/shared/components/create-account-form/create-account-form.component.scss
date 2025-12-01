@@ -1,0 +1,22 @@
+@use "../../../../themes/variables.base" as *;
+
+.create-account-form {
+  .policy-info {
+    margin: 10px 0;
+    color: $base-text-color;
+    opacity: 0.7;
+    font-size: 14px;
+    font-style: normal;
+
+    a {
+      color: $base-text-color;
+      opacity: 0.7;
+    }
+  }
+
+  .login-link {
+    color: $base-accent;
+    font-size: 16px;
+    text-align: center;
+  }
+}

@@ -36,8 +36,14 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/devextreme/dist/css/dx.material.blue.light.compact.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/dx-styles.scss",
+              { "input": "src/themes/generated/theme.additional.dark.css", "bundleName": "dx.theme.material.additional.dark" },
+              { "input": "src/themes/generated/theme.additional.light.css", "bundleName": "dx.theme.material.additional.light" },
+              { "input": "src/themes/generated/material.orange.light.css", "bundleName": "dx.theme.material.orange.light" },
+              { "input": "src/themes/generated/material.blue.light.css", "bundleName": "dx.theme.material.blue.light" },
+              { "input": "src/themes/generated/material.purple.light.css", "bundleName": "dx.theme.material.purple.light" },
+              { "input": "src/themes/generated/material.purple.dark.css", "bundleName": "dx.theme.material.purple.dark" }
             ],
             "scripts": []
           },
@@ -55,7 +61,15 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": false
+              }
             },
             "development": {
               "buildOptimizer": false,

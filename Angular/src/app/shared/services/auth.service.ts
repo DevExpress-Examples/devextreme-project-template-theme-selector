@@ -1,130 +1,145 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 
-export interface IUser {
+export interface UserData {
   email: string;
-  avatarUrl?: string
+  avatarUrl?: string;
 }
 
-const defaultPath = '/';
-const defaultUser = {
+export interface AuthResponse {
+  isOk: boolean;
+  data?: UserData;
+  message?: string;
+}
+
+const defaultUser: UserData = {
   email: 'sandra@example.com',
-  avatarUrl: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/06.png'
+  avatarUrl: 'https://js.devexpress.com/Demos/WidgetsGallery/JSDemos/images/employees/06.png',
 };
+
+const requestDelay = 300;
+
+const defaultPath = '/';
 
 @Injectable()
 export class AuthService {
-  private _user: IUser | null = defaultUser;
+  private _user?: UserData = defaultUser;
+
   get loggedIn(): boolean {
     return !!this._user;
   }
 
   private _lastAuthenticatedPath: string = defaultPath;
+
   set lastAuthenticatedPath(value: string) {
     this._lastAuthenticatedPath = value;
   }
 
-  constructor(private router: Router) { }
+  constructor(private readonly router: Router) { }
 
-  async logIn(email: string, password: string) {
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async logIn(email: string, password: string): Promise<AuthResponse> {
     try {
-      // Send request
-      console.log(email, password);
-      this._user = { ...defaultUser, email };
-      this.router.navigate([this._lastAuthenticatedPath]);
-
-      return {
-        isOk: true,
-        data: this._user
-      };
-    }
-    catch {
+      const request = new Promise<AuthResponse>((resolve) => {
+        setTimeout(() => {
+          this._user = { ...defaultUser, email };
+          this.router.navigate([this._lastAuthenticatedPath]).catch(() => { });
+          resolve({
+            isOk: true,
+            data: this._user,
+          });
+        }, requestDelay);
+      });
+      return await request;
+    } catch {
       return {
         isOk: false,
-        message: "Authentication failed"
+        message: 'Authentication failed',
       };
     }
   }
 
-  async getUser() {
+  async getUser(): Promise<AuthResponse> {
     try {
-      // Send request
-
-      return {
-        isOk: true,
-        data: this._user
-      };
-    }
-    catch {
+      const request = new Promise<AuthResponse>((resolve) => {
+        setTimeout(() => {
+          resolve({
+            isOk: true,
+            data: this._user,
+          });
+          this.router.navigate([this._lastAuthenticatedPath]).catch(() => {});
+        }, requestDelay);
+      });
+      return await request;
+    } catch {
       return {
         isOk: false,
-        data: null
+        message: 'Authentication failed',
       };
     }
   }
 
-  async createAccount(email: string, password: string) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async createAccount(email: string, password: string): Promise<AuthResponse> {
     try {
-      // Send request
-      console.log(email, password);
-
-      this.router.navigate(['/create-account']);
-      return {
-        isOk: true
-      };
-    }
-    catch {
+      const request = new Promise<AuthResponse>((resolve) => {
+        setTimeout(() => {
+          resolve({ isOk: true });
+          this.router.navigate(['/create-account']).catch(() => {});
+        }, requestDelay);
+      });
+      return await request;
+    } catch {
       return {
         isOk: false,
-        message: "Failed to create account"
+        message: 'Failed to create account',
       };
     }
   }
 
-  async changePassword(email: string, recoveryCode: string) {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async changePassword(email: string, recoveryCode: string): Promise<AuthResponse> {
     try {
-      // Send request
-      console.log(email, recoveryCode);
-
-      return {
-        isOk: true
-      };
-    }
-    catch {
+      const request = new Promise<AuthResponse>((resolve) => {
+        setTimeout(() => {
+          resolve({ isOk: true });
+        }, requestDelay);
+      });
+      return await request;
+    } catch {
       return {
         isOk: false,
-        message: "Failed to change password"
-      }
-    };
-  }
-
-  async resetPassword(email: string) {
-    try {
-      // Send request
-      console.log(email);
-
-      return {
-        isOk: true
-      };
-    }
-    catch {
-      return {
-        isOk: false,
-        message: "Failed to reset password"
+        message: 'Failed to change password',
       };
     }
   }
 
-  async logOut() {
-    this._user = null;
-    this.router.navigate(['/login-form']);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async resetPassword(email: string): Promise<AuthResponse> {
+    try {
+      const request = new Promise<AuthResponse>((resolve) => {
+        setTimeout(() => {
+          resolve({ isOk: true });
+        }, requestDelay);
+      });
+      return await request;
+    } catch {
+      return {
+        isOk: false,
+        message: 'Failed to reset password',
+      };
+    }
+  }
+
+  logOut(): void {
+    this._user = undefined;
+    this.router.navigate(['/login-form']).catch(() => {});
   }
 }
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
-  constructor(private router: Router, private authService: AuthService) { }
+  constructor(private readonly router: Router, private readonly authService: AuthService) { }
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const isLoggedIn = this.authService.loggedIn;
@@ -132,21 +147,21 @@ export class AuthGuardService implements CanActivate {
       'login-form',
       'reset-password',
       'create-account',
-      'change-password/:recoveryCode'
-    ].includes(route.routeConfig?.path || defaultPath);
+      'change-password/:recoveryCode',
+    ].includes(route.routeConfig?.path ?? defaultPath);
 
     if (isLoggedIn && isAuthForm) {
       this.authService.lastAuthenticatedPath = defaultPath;
-      this.router.navigate([defaultPath]);
+      this.router.navigate([defaultPath]).catch(() => {});
       return false;
     }
 
     if (!isLoggedIn && !isAuthForm) {
-      this.router.navigate(['/login-form']);
+      this.router.navigate(['/login-form']).catch(() => {});
     }
 
     if (isLoggedIn) {
-      this.authService.lastAuthenticatedPath = route.routeConfig?.path || defaultPath;
+      this.authService.lastAuthenticatedPath = route.routeConfig?.path ?? defaultPath;
     }
 
     return isLoggedIn || isAuthForm;

@@ -1,0 +1,10 @@
+@use "../../../../themes/variables.base" as *;
+
+:host {
+  display: block;
+  color: $base-text-color;
+  opacity: 0.7;
+  border-top: 1px solid rgb(0 0 0 / 10%);
+  padding-top: 20px;
+  padding-bottom: 24px;
+}

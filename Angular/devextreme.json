@@ -1,0 +1,49 @@
+{
+  "applicationEngine": "angular",
+  "build": {
+      "commands": [
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.material.blue.light.json",
+                  "outputFile": "src/themes/generated/material.blue.light.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.material.orange.light.json",
+                  "outputFile": "src/themes/generated/material.orange.light.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.material.purple.light.json",
+                  "outputFile": "src/themes/generated/material.purple.light.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.material.purple.dark.json",
+                  "outputFile": "src/themes/generated/material.purple.dark.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.additional.light.json",
+                  "outputFile": "src/themes/generated/theme.additional.light.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.additional.dark.json",
+                  "outputFile": "src/themes/generated/theme.additional.dark.css"
+              }
+          }
+      ]
+  }
+}

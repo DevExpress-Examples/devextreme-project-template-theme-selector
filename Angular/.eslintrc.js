@@ -9,9 +9,19 @@ module.exports = {
       es6: true
     },
     parserOptions: {
-      project: './Angular/tsconfig.json',
+      project: './tsconfig.json',
+      tsconfigRootDir: __dirname,
       'createDefaultProgram': true,
       'ecmaVersion': 6,
+    },
+    rules: {
+      'import/no-extraneous-dependencies': ['error', {
+        devDependencies: true,
+        optionalDependencies: false,
+        peerDependencies: true,
+        bundledDependencies: false,
+        packageDir: __dirname,
+      }],
     },
   }]
 };

@@ -2,5 +2,14 @@
     "extends": [
         "stylelint-config-standard-scss",
         "eslint-config-devextreme/stylelintrc"
-    ]
+    ],
+    "ignoreFiles": [
+        "src/themes/generated/**"
+    ],
+    "rules": {
+        "at-rule-no-unknown": null,
+        "import-notation": null,
+        "scss/at-import-partial-extension": null,
+        "no-invalid-position-at-import-rule": null
+    }
 }
