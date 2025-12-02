@@ -1,0 +1,53 @@
+{
+  "applicationEngine": "vue",
+  "vue": {
+    "version": 3,
+    "template": "javascript"
+  },
+  "build": {
+      "commands": [
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.material.blue.light.json",
+                  "outputFile": "public/themes/material.blue.light.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.material.orange.light.json",
+                  "outputFile": "public/themes/material.orange.light.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.material.purple.light.json",
+                  "outputFile": "public/themes/material.purple.light.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.material.purple.dark.json",
+                  "outputFile": "public/themes/material.purple.dark.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.additional.light.json",
+                  "outputFile": "public/themes/theme.additional.light.css"
+              }
+          },
+          {
+              "command": "build-theme",
+              "options": {
+                  "inputFile": "src/themes/metadata.additional.dark.json",
+                  "outputFile": "public/themes/theme.additional.dark.css"
+              }
+          }
+      ]
+  }
+}
