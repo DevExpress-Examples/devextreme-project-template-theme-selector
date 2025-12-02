@@ -7,17 +7,35 @@
 
 # Theme Switcher for DevExtreme - How to implement Theme Selector for the DevExtreme Project Template
 
-The DevExtreme Project Template has two default themes: `base` and `swatch`. You can change the base theme to another Material theme at runtime. To switch between themes, use the StyleSheet API. For this, disable all loaded theme stylesheet links excluding the active one. 
+This example illustrates how to switch between themes in our Project Template at runtime. We added the [SelectBox](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxSelectBox/) with the theme list to switch between themes.
 
-The DevExtreme Project Template has several places where the SCSS variables used to change the color. To have the same color as main theme we use CSS variables and change them.
+The DevExtreme Project Template has two default themes: `base` and `swatch`. Also, the template has several places where the SCSS variables used to change colors.
+The switching routine consists of three steps:
+1) Use the StyleSheet API to disable all loaded `base` theme stylesheets links excluding the active one.
+2) Use the StyleSheet API to disable all loaded `swatch` stylesheet links keeping the active one.
+3) Update SCSS variables.
 
-This sample demonstrates how to do this via a drop-down editor ([SelectBox](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxSelectBox/)) located in a header ([Toolbar](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxToolbar/)). The default Project Template also has several elements that don't apply theme CSS rules (font color, background color) automatically. For these elements, you can use our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/):
+See its implementation in the following files:
+- [Angular Theme Service](Angular/src/app/shared/services/theme.service.ts)
+- [Vue Theme Service](Vue/src/services/theme-service.ts)
+- [React Theme Service](React/src/contexts/theme.tsx)
+
+The default Project Template also has several elements that don't apply theme CSS rules (font color, background color) automatically. For these elements, you can use our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/):
 
 - [dx-theme-background-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color)
 - [dx-theme-text-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color)
 
-To generate swatch themes you can use ThemeBuilder CLI:
+### How to add a theme
+1) Add JSON meta data file for the required theme to `src/themes` directory. The following help topic describes the file's format: [Export Theme Metadata](https://js.devexpress.com/React/Documentation/Guide/Common/DevExtreme_CLI/#ThemeBuilder/Export_Theme_Metadata). You can duplicate an existing JSON file and change its **baseTheme** value.
+2) Add this file to the command list in the **devextreme.json** file. The **devextreme.json** file lists themes to build. By default, it includes 4 base themes and 2 swatch themes.
+3) Run the `npm run build-themes` command. Our **ThemeBuilder CLI** reads metadata listed in **devextreme.json** and build themes. Find built themes in the directory specified in **devextreme.json** as `outputFile`.
+4) Add a link to the new theme in **index.html**.
+5) Add a new entry to the array in the theme service's **getThemeData** function. This array is the data source for the SelectBox theme-selector. This step is required only for base themes.
 
+Currently, there are two swatch themes: light and dark. If you want to switch between three or more swatch themes, extend the **applySwatchTheme** method in the theme service.
+
+
+It is possible to generate a theme file directly using our [ThemeBuilder CLI](https://js.devexpress.com/Documentation/Guide/Common/DevExtreme_CLI/#ThemeBuilder). For example, the following commands generate light and dark swatch themes:
 ```
 npx devextreme-cli build-theme --base-theme="material.blue.light" --output-file="theme.additional.light" --make-swatch --assetsBasePath="../../../node_modules/devextreme/dist/css" --output-color-scheme="additional"
 
@@ -30,31 +48,29 @@ npx devextreme-cli build-theme --base-theme="material.blue.dark" --output-file="
 
 - **Angular**
     - [index.html](Angular/src/index.html)
+    - [app.component.ts](Angular/src/app/app.component.ts)
+    - [app.component.html](Angular/src/app/app.component.html)
     - [theme.service.ts](Angular/src/app/shared/services/theme.service.ts)
     - [theme-selector.component.ts](Angular/src/app/shared/components/theme-selector/theme-selector.component.ts)
     - [theme-selector.component.html](Angular/src/app/shared/components/theme-selector/theme-selector.component.html)
-    - [app.component.ts](Angular/src/app/app.component.ts)
-    - [variables.css](Angular/src/themes/generated/variables.css)
-    - [variables.base.scss](Angular/src/themes/generated/variables.base.scss)
-    - [variables.additional.scss](Angular/src/themes/generated/variables.additional.scss)
+    - [variables.base.scss](Angular/src/themes/variables.base.scss)
+    - [variables.additional.scss](Angular/src/themes/variables.additional.scss)
     - [angular.json](Angular/angular.json)
  - **Vue**
-    - [theme-service.js](Vue/src/services/theme-service.js)
     - [App.vue](Vue/src/App.vue)
+    - [theme-service.ts](Vue/src/services/theme-service.ts)
     - [theme-selector.vue](Vue/src/components/theme-selector.vue)
-    - [main.js](Vue/src/main.js)
-    - [variables.css](Vue/src/themes/generated/variables.css)
-    - [variables.base.scss](Vue/src/themes/generated/variables.base.scss)
-    - [variables.additional.scss](Vue/src/themes/generated/variables.additional.scss)
+    - [main.ts](Vue/src/main.ts)
+    - [variables.base.scss](Vue/src/themes/variables.base.scss)
+    - [variables.additional.scss](Vue/src/themes/variables.additional.scss)
     - [public](Vue/public)
  - **React**
-    - [App.js](React/src/App.js)
-    - [variables.css](React/src/themes/generated/variables.css)
-    - [variables.base.scss](React/src/themes/generated/variables.base.scss)
-    - [variables.additional.scss](React/src/themes/generated/variables.additional.scss)
-    - [theme-constants.js](React/src/utils/theme-constants.js)
-    - [theme.js](React/src/contexts/theme.js)
-    - [ThemeSelector.js](React/src/components/theme-selector/ThemeSelector.js)
+    - [App.tsx](React/src/App.tsx)
+    - [variables.base.scss](React/src/themes/variables.base.scss)
+    - [variables.additional.scss](React/src/themes/variables.additional.scss)
+    - [theme-constants.ts](React/src/utils/theme-constants.ts)
+    - [theme.tsx](React/src/contexts/theme.tsx)
+    - [ThemeSelector.tsx](React/src/components/theme-selector/ThemeSelector.tsx)
     - [public](React/public/)
 
 
