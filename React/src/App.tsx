@@ -1,9 +1,3 @@
-// import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-// import 'devextreme/dist/css/dx.material.orange.light.compact.css';
-// import 'devextreme/dist/css/dx.material.purple.light.compact.css';
-// import './themes/generated/theme.additional.css';
-
-// import './themes/generated/variables.css';
 import './App.css';
 import { useEffect } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
