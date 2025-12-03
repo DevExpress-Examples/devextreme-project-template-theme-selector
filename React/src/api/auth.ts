@@ -10,7 +10,7 @@ export interface AuthResponse {
 const requestDelay = 300;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function signIn(email: string, password: string): Promise<AuthResponse> {
+export async function signIn(_email: string, _password: string): Promise<AuthResponse> {
   try {
     const request = new Promise<AuthResponse>((resolve) => {
       setTimeout(() => {
@@ -46,7 +46,7 @@ export async function getUser(): Promise<AuthResponse> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function createAccount(email: string, password: string): Promise<AuthResponse> {
+export async function createAccount(_email: string, _password: string): Promise<AuthResponse> {
   try {
     const request = new Promise<AuthResponse>((resolve) => {
       setTimeout(() => {
@@ -63,7 +63,7 @@ export async function createAccount(email: string, password: string): Promise<Au
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function changePassword(email: string, recoveryCode: string): Promise<AuthResponse> {
+export async function changePassword(_email: string, _recoveryCode: string): Promise<AuthResponse> {
   try {
     const request = new Promise<AuthResponse>((resolve) => {
       setTimeout(() => {
@@ -80,7 +80,7 @@ export async function changePassword(email: string, recoveryCode: string): Promi
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export async function resetPassword(email: string): Promise<AuthResponse> {
+export async function resetPassword(_email: string): Promise<AuthResponse> {
   try {
     const request = new Promise<AuthResponse>((resolve) => {
       setTimeout(() => {

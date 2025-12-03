@@ -13,8 +13,8 @@ The DevExtreme Project Template has several places where the SCSS variables used
 
 This sample demonstrates how to do this via a drop-down editor ([SelectBox](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxSelectBox/)) located in a header ([Toolbar](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxToolbar/)). The default Project Template also has several elements that don't apply theme CSS rules (font color, background color) automatically. For these elements, you can use our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/):
 
-- [dx-theme-background-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color)
-- [dx-theme-text-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color)
+- [dx-theme-background-color](https://js.devexpress.com/React/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color)
+- [dx-theme-text-color](https://js.devexpress.com/React/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color)
 
 To generate swatch themes you can use ThemeBuilder CLI:
 
