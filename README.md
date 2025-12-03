@@ -12,21 +12,21 @@ DevExtreme Application Templates include two default themes: `base` and `swatch`
 
 To switch between themes, this example implements the following steps:
 1) Use the StyleSheet API to disable all loaded `base` stylesheets (excluding the active stylesheet).
-2) Use the StyleSheet API to disable all loaded `swatch` stylesheet.
+2) Use the StyleSheet API to disable all loaded `swatch` stylesheet (excluding the active stylesheet).
 3) Update SCSS variables.
 
-Review the following files for the theme switcher implementation:
+Refer to the following files for the theme switcher logic implementation:
 - [Angular Theme Service](Angular/src/app/shared/services/theme.service.ts)
 - [Vue Theme Service](Vue/src/services/theme-service.ts)
 - [React Theme Service](React/src/contexts/theme.tsx)
 
-Elements such as font and background colors do not change automatically based on the active theme. To customize these elements, you can use predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/):
+This example also uses our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/) to customize elements outside of DevExtreme components:
 
 - [dx-theme-background-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color)
 - [dx-theme-text-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color)
 
 ### Add a Theme to the Theme Switcher
-1) Add theme metadata JSON files to `src/themes`. For additional information on theme metadata exports, refer to the following topic: [Export Theme Metadata](https://js.devexpress.com/React/Documentation/Guide/Common/DevExtreme_CLI/#ThemeBuilder/Export_Theme_Metadata).
+1) Add theme metadata JSON files to `src/themes`. For additional information on theme metadata files, refer to the following topic: [Export Theme Metadata](https://js.devexpress.com/React/Documentation/Guide/Common/DevExtreme_CLI/#ThemeBuilder/Export_Theme_Metadata).
 2) Add the new metadata file to the command list in **devextreme.json**. The **devextreme.json** file includes a list of themes to build.
 3) Run the following command: `npm run build-themes`. This command uses our [ThemeBuilder CLI](https://js.devexpress.com/Documentation/Guide/Common/DevExtreme_CLI/#ThemeBuilder) to generate theme files. You can find built themes in the `outputFile` directory specified in **devextreme.json**.
 4) Add a link to the new theme in **index.html**.
