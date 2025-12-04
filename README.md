@@ -6,9 +6,9 @@
 
 # Theme Switcher for DevExtreme - Implement a Theme Switcher within the DevExtreme Application Template
 
-This example demonstrates runtime theme switching in our Application Templates. You can use a DevExtreme [SelectBox](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxSelectBox/) within the application to switch between available themes.
-
-DevExtreme Application Templates include two default themes: `base` and `swatch`. These templates also implement SCSS variables to change theme colors.
+DevExtreme Application Templates include two default themes: `base` and `swatch`. This example implements a DevExtreme [SelectBox](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxSelectBox/) designed to switch between themes at runtime.
+	
+Our Application Templates contain SCSS variables that allow you to change theme colors. You can also use our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/) ([dx-theme-background-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color), [dx-theme-text-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color), etc.) to style native HTML elements to maintain a consistent look across your application.
 
 To switch between themes, use StyleSheet APIs to disable all loaded `base`/`swatch` stylesheets (excluding the active stylesheet) and update SCSS variables. Refer to the following files to review framework-specific implementations:
 - [Angular Theme Service](Angular/src/app/shared/services/theme.service.ts)
@@ -16,9 +16,6 @@ To switch between themes, use StyleSheet APIs to disable all loaded `base`/`swat
 - [React Theme Service](React/src/contexts/theme.tsx)
 
 This example also uses our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/) to customize elements outside of DevExtreme components:
-
-- [dx-theme-background-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color)
-- [dx-theme-text-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color)
 
 ## Add Themes to the Theme Switcher
 1) Add theme metadata JSON files to `src/themes`. For additional information on theme metadata files, refer to the following help topic: [Export Theme Metadata](https://js.devexpress.com/React/Documentation/Guide/Common/DevExtreme_CLI/#ThemeBuilder/Export_Theme_Metadata).
