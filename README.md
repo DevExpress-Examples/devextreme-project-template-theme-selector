@@ -1,30 +1,39 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/525731085/25.1.3%2B)
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T1109715)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
 
-# Theme Switcher for DevExtreme - How to implement Theme Selector for the DevExtreme Project Template
+# Theme Switcher for DevExtreme - Implement a Theme Switcher within the DevExtreme Application Template
 
-The DevExtreme Project Template has two default themes: `base` and `swatch`. You can change the base theme to another Material theme at runtime. To switch between themes, use the StyleSheet API. For this, disable all loaded theme stylesheet links excluding the active one. 
+DevExtreme Application Templates include two default themes: `base` and `swatch`. This example implements a DevExtreme [SelectBox](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxSelectBox/) designed to switch between themes at runtime.
+	
+Our Application Templates contain SCSS variables designed to change theme colors. You can also use our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/) ([dx-theme-background-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color), [dx-theme-text-color](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color), etc.) to style native HTML elements to maintain a consistent look across your application.
 
-The DevExtreme Project Template has several places where the SCSS variables used to change the color. To have the same color as main theme we use CSS variables and change them.
+To switch between themes, use StyleSheet APIs to disable all loaded `base`/`swatch` stylesheets (excluding the active stylesheet) and update SCSS variables. Refer to the following files to review framework-specific implementations:
+- [Angular Theme Service](Angular/src/app/shared/services/theme.service.ts)
+- [Vue Theme Service](Vue/src/services/theme-service.ts)
+- [React Theme Service](React/src/contexts/theme.tsx)
 
-This sample demonstrates how to do this via a drop-down editor ([SelectBox](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxSelectBox/)) located in a header ([Toolbar](https://js.devexpress.com/Documentation/ApiReference/UI_Components/dxToolbar/)). The default Project Template also has several elements that don't apply theme CSS rules (font color, background color) automatically. For these elements, you can use our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/):
+This example also uses our predefined [CSS classes](https://js.devexpress.com/Documentation/ApiReference/UI_Components/CSS_Classes/) to customize elements outside of DevExtreme components.
 
-- [dx-theme-background-color](https://js.devexpress.com/React/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-background-color)
-- [dx-theme-text-color](https://js.devexpress.com/React/Documentation/ApiReference/UI_Components/CSS_Classes/#dx-theme-text-color)
+## Add Themes to the Theme Switcher
+1) Add theme metadata JSON files to `src/themes`. For additional information on theme metadata files, refer to the following help topic: [Export Theme Metadata](https://js.devexpress.com/React/Documentation/Guide/Common/DevExtreme_CLI/#ThemeBuilder/Export_Theme_Metadata).
+2) Add new metadata files to the command list in **devextreme.json** (as `build-theme` commands).
+3) Execute the following command: `npm run build-themes`. This command uses our [ThemeBuilder CLI](https://js.devexpress.com/Documentation/Guide/Common/DevExtreme_CLI/#ThemeBuilder) to generate theme files. You can find these files in the `outputFile` directory (specified in **devextreme.json**).
+4) Add links to new themes in **index.html**.
+5) _For base themes only._ Add new entries to the `getThemeData` array within the theme service. The theme switcher SelectBox uses this array as a data source.
 
-To generate swatch themes you can use ThemeBuilder CLI:
+This example implements two swatch themes (light and dark). To switch between three or more swatch themes, extend the `applySwatchTheme` method in the theme service.
 
+You can also generate theme files using our ThemeBuilder CLI. The following commands generate light and dark swatch themes:
 ```
 npx devextreme-cli build-theme --base-theme="material.blue.light" --output-file="theme.additional.light" --make-swatch --assetsBasePath="../../../node_modules/devextreme/dist/css" --output-color-scheme="additional"
 
 npx devextreme-cli build-theme --base-theme="material.blue.dark" --output-file="theme.additional.dark" --make-swatch --assetsBasePath="../../../node_modules/devextreme/dist/css" --output-color-scheme="additional"
 ```
 
-<div align="center"><img alt="Selector for DevExtreme - How to implement Theme Selector for the DevExtreme Project Template" src="images/theme-selector-for-template.png" /></div>
+<div align="center"><img alt="Theme Switcher for DevExtreme - How to Implement a Theme Switcher in the DevExtreme Application Template" src="images/theme-selector-for-template.png" /></div>
 
 ## Files to Review
 
