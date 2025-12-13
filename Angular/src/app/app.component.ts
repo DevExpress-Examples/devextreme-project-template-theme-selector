@@ -1,6 +1,5 @@
-import { Component, HostBinding } from '@angular/core';
-import { AuthService, ScreenService, AppInfoService } from './shared/services';
-import { ThemeService } from './shared/services/theme.service';
+import { Component } from '@angular/core';
+import { ClickEvent } from 'devextreme/ui/button';
 
 @Component({
   selector: 'app-root',
@@ -8,22 +7,14 @@ import { ThemeService } from './shared/services/theme.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  @HostBinding('class') get getClass(): string {
-    return Object.keys(this.screen.sizes).filter((cl) => this.screen.sizes[cl as keyof typeof this.screen.sizes]).join(' ');
-  }
+  title = 'Angular';
 
-  constructor(
-    private readonly themeService: ThemeService,
-    private readonly authService: AuthService,
-    private readonly screen: ScreenService,
-    public readonly appInfo: AppInfoService,
-  ) { }
+  counter = 0;
 
-  isAuthenticated(): boolean {
-    return this.authService.loggedIn;
-  }
+  buttonText = 'Click count: 0';
 
-  ngOnInit(): void {
-    this.themeService.applyTheme();
+  onClick(_e: ClickEvent): void {
+    this.counter++;
+    this.buttonText = `Click count: ${this.counter}`;
   }
 }
