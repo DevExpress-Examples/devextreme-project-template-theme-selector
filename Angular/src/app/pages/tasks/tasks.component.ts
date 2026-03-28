@@ -3,6 +3,7 @@ import 'devextreme/data/odata/store';
 import { DataService, Priority, Task } from 'src/app/shared/services/data.service';
 
 @Component({
+  standalone: false,
   templateUrl: 'tasks.component.html',
   providers: [DataService],
 })

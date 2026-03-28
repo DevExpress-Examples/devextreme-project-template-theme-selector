@@ -8,6 +8,7 @@ import notify from 'devextreme/ui/notify';
 import { AuthService } from '../../services';
 
 @Component({
+  standalone: false,
   selector: 'app-change-passsword-form',
   templateUrl: './change-password-form.component.html',
 })

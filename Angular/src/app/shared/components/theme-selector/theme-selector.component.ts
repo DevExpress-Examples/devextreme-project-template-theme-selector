@@ -6,6 +6,7 @@ import { DxTextBoxModule } from 'devextreme-angular/ui/text-box';
 import { type ThemeData, ThemeService } from '../../services/theme.service';
 
 @Component({
+  standalone: false,
   selector: 'theme-selector',
   templateUrl: 'theme-selector.component.html',
   styleUrls: ['./theme-selector.component.scss'],

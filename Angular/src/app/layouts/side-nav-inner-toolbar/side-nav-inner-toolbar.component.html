@@ -17,7 +17,7 @@
     (openMenu)="navigationClick()"
   >
     <dx-toolbar id="navigation-header">
-      <dxi-item
+      <dxi-toolbar-item
         *ngIf="minMenuSize !== 0"
         location="before"
         cssClass="dx-theme-text-color"
@@ -28,9 +28,9 @@
           onClick: toggleMenu
         }"
       >
-      </dxi-item>
-      <dxi-item location="before" cssClass="header-title" [text]="title">
-      </dxi-item>
+      </dxi-toolbar-item>
+      <dxi-toolbar-item location="before" cssClass="header-title" [text]="title">
+      </dxi-toolbar-item>
     </dx-toolbar>
   </app-side-navigation-menu>
 

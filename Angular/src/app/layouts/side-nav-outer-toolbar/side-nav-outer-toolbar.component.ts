@@ -14,6 +14,7 @@ import { SideNavigationMenuModule, HeaderModule } from '../../shared/components/
 import { ScreenService } from '../../shared/services';
 
 @Component({
+  standalone: false,
   selector: 'app-side-nav-outer-toolbar',
   templateUrl: './side-nav-outer-toolbar.component.html',
   styleUrls: ['./side-nav-outer-toolbar.component.scss'],

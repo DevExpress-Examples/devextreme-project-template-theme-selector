@@ -15,6 +15,7 @@ import * as events from 'devextreme/events';
 import { navigation } from '../../../app-navigation';
 
 @Component({
+  standalone: false,
   selector: 'app-side-navigation-menu',
   templateUrl: './side-navigation-menu.component.html',
   styleUrls: ['./side-navigation-menu.component.scss'],

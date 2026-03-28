@@ -1,6 +1,6 @@
 <header>
   <dx-toolbar class="header-toolbar">
-    <dxi-item
+    <dxi-toolbar-item
       *ngIf="menuToggleEnabled"
       location="before"
       widget="dxButton"
@@ -11,20 +11,20 @@
         onClick: toggleMenu
       }"
     >
-    </dxi-item>
-    <dxi-item
+    </dxi-toolbar-item>
+    <dxi-toolbar-item
       location="before"
       cssClass="header-title"
       *ngIf="title"
       [text]="title"
     >
-    </dxi-item>
-    <dxi-item location="after" menuItemTemplate="themeSelector">
+    </dxi-toolbar-item>
+    <dxi-toolbar-item location="after" menuItemTemplate="themeSelector">
       <div *dxTemplate="let data of 'item'">
         <theme-selector></theme-selector>
       </div>
-    </dxi-item>
-    <dxi-item location="after" locateInMenu="auto" menuItemTemplate="menuItem">
+    </dxi-toolbar-item>
+    <dxi-toolbar-item location="after" locateInMenu="auto" menuItemTemplate="menuItem">
       <div *dxTemplate="let data of 'item'">
         <dx-button
           class="user-button authorization"
@@ -41,7 +41,7 @@
           </div>
         </dx-button>
       </div>
-    </dxi-item>
+    </dxi-toolbar-item>
     <div *dxTemplate="let data of 'menuItem'">
       <app-user-panel
         [user]="user"

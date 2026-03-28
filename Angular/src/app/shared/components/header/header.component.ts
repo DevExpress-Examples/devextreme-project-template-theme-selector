@@ -16,6 +16,7 @@ import { ThemeSelectorModule } from '../theme-selector/theme-selector.component'
 import { UserPanelModule } from '../user-panel/user-panel.component';
 
 @Component({
+  standalone: false,
   selector: 'app-header',
   templateUrl: 'header.component.html',
   styleUrls: ['./header.component.scss'],
