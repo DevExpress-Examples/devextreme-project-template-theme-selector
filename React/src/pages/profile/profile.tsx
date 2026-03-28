@@ -2,6 +2,13 @@ import React, { useCallback, useMemo, useState } from 'react';
 import './profile.scss';
 import Form, { type FormTypes } from 'devextreme-react/form';
 
+const colCountByScreen = {
+  xs: 1,
+  sm: 2,
+  md: 3,
+  lg: 4,
+};
+
 export default function Profile(): JSX.Element {
   const [notes, setNotes] = useState(
     'Sandra is a CPA and has been our controller since 2008. She loves to interact with staff so if you`ve not met her, be certain to say hi.\r\n\r\nSandra has 2 daughters both of whom are accomplished gymnasts.',
@@ -53,9 +60,3 @@ export default function Profile(): JSX.Element {
   );
 }
 
-const colCountByScreen = {
-  xs: 1,
-  sm: 2,
-  md: 3,
-  lg: 4,
-};

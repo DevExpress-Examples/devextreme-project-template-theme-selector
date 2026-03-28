@@ -9,6 +9,12 @@ import React, {
 import { getUser, signIn as sendSignInRequest, type AuthResponse } from '../api/auth';
 import type { UserData, AuthContextType } from '../types';
 
+const AuthContext = createContext<AuthContextType>({
+  loading: false,
+  signIn: () => Promise.resolve({ isOk: false }),
+  signOut: () => {},
+});
+
 function AuthProvider(props: React.PropsWithChildren<{}>): JSX.Element {
   const [user, setUser] = useState<UserData>();
   const [loading, setLoading] = useState(true);
@@ -45,12 +51,6 @@ function AuthProvider(props: React.PropsWithChildren<{}>): JSX.Element {
     <AuthContext.Provider value={contextValue} {...props} />
   );
 }
-
-const AuthContext = createContext<AuthContextType>({
-  loading: false,
-  signIn: () => Promise.resolve({ isOk: false }),
-  signOut: () => {},
-});
 
 function useAuth(): AuthContextType {
   return useContext(AuthContext);

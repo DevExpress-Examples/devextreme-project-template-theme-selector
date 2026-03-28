@@ -7,6 +7,35 @@ interface ScreenSize {
   isLarge: boolean;
 }
 
+let handlers: Function[] = [];
+const xSmallMedia = window.matchMedia('(max-width: 599.99px)');
+const smallMedia = window.matchMedia('(min-width: 600px) and (max-width: 959.99px)');
+const mediumMedia = window.matchMedia('(min-width: 960px) and (max-width: 1279.99px)');
+const largeMedia = window.matchMedia('(min-width: 1280px)');
+
+[xSmallMedia, smallMedia, mediumMedia, largeMedia].forEach((media) => {
+  media.addEventListener('change', (e) => {
+    if (e.matches) { handlers.forEach((handler) => { handler(); }); }
+  });
+});
+
+function subscribe(handler: Function): void {
+  handlers.push(handler);
+}
+
+function unsubscribe(handler: Function): void {
+  handlers = handlers.filter((item) => item !== handler);
+}
+
+function getScreenSize(): ScreenSize {
+  return {
+    isXSmall: xSmallMedia.matches,
+    isSmall: smallMedia.matches,
+    isMedium: mediumMedia.matches,
+    isLarge: largeMedia.matches,
+  };
+}
+
 export function useScreenSize(): ScreenSize {
   const [screenSize, setScreenSize] = useState<ScreenSize>(getScreenSize());
   const onSizeChanged = useCallback(() => {
@@ -40,33 +69,4 @@ export function useScreenSizeClass(): string {
   }
 
   return 'screen-x-small';
-}
-
-let handlers: Function[] = [];
-const xSmallMedia = window.matchMedia('(max-width: 599.99px)');
-const smallMedia = window.matchMedia('(min-width: 600px) and (max-width: 959.99px)');
-const mediumMedia = window.matchMedia('(min-width: 960px) and (max-width: 1279.99px)');
-const largeMedia = window.matchMedia('(min-width: 1280px)');
-
-[xSmallMedia, smallMedia, mediumMedia, largeMedia].forEach((media) => {
-  media.addEventListener('change', (e) => {
-    e.matches && handlers.forEach((handler) => { handler(); });
-  });
-});
-
-function subscribe(handler: Function): void {
-  handlers.push(handler);
-}
-
-function unsubscribe(handler: Function): void {
-  handlers = handlers.filter((item) => item !== handler);
-}
-
-function getScreenSize(): ScreenSize {
-  return {
-    isXSmall: xSmallMedia.matches,
-    isSmall: smallMedia.matches,
-    isMedium: mediumMedia.matches,
-    isLarge: largeMedia.matches,
-  };
 }

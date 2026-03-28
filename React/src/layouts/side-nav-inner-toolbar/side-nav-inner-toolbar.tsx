@@ -18,6 +18,12 @@ import { useScreenSize } from '../../utils/media-query';
 import { useMenuPatch } from '../../utils/patches';
 import type { SideNavToolbarProps } from '../../types';
 
+const MenuStatus = {
+  Closed: 1,
+  Opened: 2,
+  TemporaryOpened: 3,
+};
+
 export default function SideNavInnerToolbar({ title, children }: React.PropsWithChildren<SideNavToolbarProps>): JSX.Element {
   const scrollViewRef = useRef<ScrollViewRef>(null);
   const navigate = useNavigate();
@@ -132,8 +138,3 @@ export default function SideNavInnerToolbar({ title, children }: React.PropsWith
   );
 }
 
-const MenuStatus = {
-  Closed: 1,
-  Opened: 2,
-  TemporaryOpened: 3,
-};

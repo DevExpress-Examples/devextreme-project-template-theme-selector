@@ -14,6 +14,10 @@ import { useAuth } from '../../contexts/auth';
 
 import './LoginForm.scss';
 
+const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
+const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
+const rememberMeEditorOptions = { text: 'Remember me', elementAttr: { class: 'form-text' } };
+
 export default function LoginForm(): JSX.Element {
   const navigate = useNavigate();
   const { signIn } = useAuth();
@@ -99,6 +103,3 @@ export default function LoginForm(): JSX.Element {
   );
 }
 
-const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
-const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
-const rememberMeEditorOptions = { text: 'Remember me', elementAttr: { class: 'form-text' } };

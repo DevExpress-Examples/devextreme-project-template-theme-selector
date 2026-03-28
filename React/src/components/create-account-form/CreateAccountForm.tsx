@@ -15,6 +15,10 @@ import { createAccount } from '../../api/auth';
 
 import './CreateAccountForm.scss';
 
+const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
+const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
+const confirmedPasswordEditorOptions = { stylingMode: 'filled', placeholder: 'Confirm Password', mode: 'password' };
+
 export default function CreateAccountForm(): JSX.Element {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -106,6 +110,3 @@ export default function CreateAccountForm(): JSX.Element {
   );
 }
 
-const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
-const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
-const confirmedPasswordEditorOptions = { stylingMode: 'filled', placeholder: 'Confirm Password', mode: 'password' };

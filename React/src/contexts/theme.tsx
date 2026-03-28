@@ -31,14 +31,14 @@ function useTheme(): ThemeContextType {
 }
 
 function ThemeProvider({ theme, ...props }: React.PropsWithChildren<{ theme?: string }>): JSX.Element {
-  const [_theme, setTheme] = useState(theme);
+  const [themeState, setTheme] = useState(theme);
 
   const getTheme = useCallback(
-    () => _theme ?? window.localStorage[storageKey] as string ?? 'orange.light',
-    [_theme],
+    () => themeState ?? window.localStorage[storageKey] as string ?? 'orange.light',
+    [themeState],
   );
 
-  const applyBaseTheme = useCallback((theme: string, themeMarker: string) => {
+  const applyBaseTheme = useCallback((themeName: string, themeMarker: string) => {
     for (const styleSheet of document.styleSheets) {
       const href = styleSheet.href;
       if (href) {
@@ -47,7 +47,7 @@ function ThemeProvider({ theme, ...props }: React.PropsWithChildren<{ theme?: st
           const startPosition = themeMarkerPosition + themeMarker.length;
           const endPosition = href.indexOf('.css');
           const fileNamePart = href.substring(startPosition, endPosition);
-          if (fileNamePart === theme) {
+          if (fileNamePart === themeName) {
             for (let i = 0; i < styleSheet.cssRules.length; i++) {
               const cssRule = styleSheet.cssRules.item(i) as CSSStyleRule;
               if (cssRule?.selectorText === '.dx-theme-accent-as-text-color') {
@@ -58,7 +58,7 @@ function ThemeProvider({ theme, ...props }: React.PropsWithChildren<{ theme?: st
               }
             }
           }
-          styleSheet.disabled = fileNamePart != theme;
+          styleSheet.disabled = fileNamePart != themeName;
         }
       }
     }
@@ -86,19 +86,19 @@ function ThemeProvider({ theme, ...props }: React.PropsWithChildren<{ theme?: st
   }, []);
 
   const applyTheme = useCallback(() => {
-    const theme = getTheme();
-    applyBaseTheme(theme, baseThemeMarker);
-    const accent = theme?.substring(theme.indexOf('.') + 1) as ThemeSwatchAccent;
+    const appliedTheme = getTheme();
+    applyBaseTheme(appliedTheme, baseThemeMarker);
+    const accent = appliedTheme?.substring(appliedTheme.indexOf('.') + 1) as ThemeSwatchAccent;
     applySwatchVariables(accent);
     applySwatchTheme(accent, additionalThemeMarker);
-    window.localStorage[storageKey] = theme;
-    currentTheme(`'material.'${theme}`);
+    window.localStorage[storageKey] = appliedTheme;
+    currentTheme(`'material.'${appliedTheme}`);
     refreshTheme();
   }, [getTheme]);
 
   useEffect(() => {
     applyTheme();
-  }, [_theme, applyTheme]);
+  }, [themeState, applyTheme]);
 
   const themeContextValue = useMemo<ThemeContextType>(() => ({
     getThemeData,

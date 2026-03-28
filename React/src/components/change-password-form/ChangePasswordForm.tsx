@@ -13,6 +13,9 @@ import notify from 'devextreme/ui/notify';
 
 import { changePassword } from '../../api/auth';
 
+const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
+const confirmedPasswordEditorOptions = { stylingMode: 'filled', placeholder: 'Confirm Password', mode: 'password' };
+
 export default function ChangePasswordForm(): JSX.Element {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
@@ -83,6 +86,3 @@ export default function ChangePasswordForm(): JSX.Element {
     </form>
   );
 }
-
-const passwordEditorOptions = { stylingMode: 'filled', placeholder: 'Password', mode: 'password' };
-const confirmedPasswordEditorOptions = { stylingMode: 'filled', placeholder: 'Confirm Password', mode: 'password' };

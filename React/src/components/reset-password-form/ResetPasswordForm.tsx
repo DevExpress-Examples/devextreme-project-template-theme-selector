@@ -14,6 +14,8 @@ import { resetPassword } from '../../api/auth';
 import './ResetPasswordForm.scss';
 
 const notificationText = 'We\'ve sent a link to reset your password. Check your inbox.';
+const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
+const submitButtonAttributes = { class: 'submit-button' };
 
 export default function ResetPasswordForm(): JSX.Element {
   const navigate = useNavigate();
@@ -78,5 +80,3 @@ export default function ResetPasswordForm(): JSX.Element {
   );
 }
 
-const emailEditorOptions = { stylingMode: 'filled', placeholder: 'Email', mode: 'email' };
-const submitButtonAttributes = { class: 'submit-button' };
