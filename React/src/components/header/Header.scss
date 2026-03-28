@@ -1,5 +1,5 @@
-@import "../../themes/variables.base.scss";
-@import "../../dx-styles.scss";
+@use "../../themes/variables.base.scss" as *;
+@use "../../dx-styles.scss" as *;
 
 .header-component {
   flex: 0 0 auto;

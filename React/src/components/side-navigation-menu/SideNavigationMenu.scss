@@ -1,5 +1,6 @@
-@import "../../dx-styles.scss";
-@import "../../themes/variables.additional.scss";
+@use "../../dx-styles.scss" as *;
+@use "../../themes/variables.additional.scss" as *;
+@use "../../utils/patches.scss" as patches;
 
 .side-navigation-menu {
   display: flex;
@@ -94,6 +95,5 @@
 }
 
 .dx-drawer-overlap.pre-init-blink-fix {
-  @import "../../utils/patches.scss";
-  @include menu-pre-init-patch;
+  @include patches.menu-pre-init-patch;
 }
