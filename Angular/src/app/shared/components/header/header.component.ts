@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
 import { DxButtonModule } from 'devextreme-angular/ui/button';
 import { DxToolbarModule } from 'devextreme-angular/ui/toolbar';
 import { AuthService, UserData } from '../../services';
-import { ThemeService } from '../../services/theme.service';
 import { ThemeSelectorModule } from '../theme-selector/theme-selector.component';
 import { UserPanelModule } from '../user-panel/user-panel.component';
 

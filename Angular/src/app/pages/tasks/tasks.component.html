@@ -11,7 +11,10 @@
   [columnHidingEnabled]="true"
 >
   <dxo-data-grid-paging [pageSize]="10"></dxo-data-grid-paging>
-  <dxo-data-grid-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-data-grid-pager>
+  <dxo-data-grid-pager
+    [showPageSizeSelector]="true"
+    [showInfo]="true"
+  ></dxo-data-grid-pager>
   <dxo-data-grid-filter-row [visible]="true"></dxo-data-grid-filter-row>
 
   <dxi-data-grid-column dataField="Task_ID" [width]="90" [hidingPriority]="2">
@@ -23,10 +26,22 @@
     [hidingPriority]="8"
   >
   </dxi-data-grid-column>
-  <dxi-data-grid-column dataField="Task_Status" caption="Status" [hidingPriority]="6">
+  <dxi-data-grid-column
+    dataField="Task_Status"
+    caption="Status"
+    [hidingPriority]="6"
+  >
   </dxi-data-grid-column>
-  <dxi-data-grid-column dataField="Task_Priority" caption="Priority" [hidingPriority]="5">
-    <dxo-data-grid-lookup [dataSource]="priorities" valueExpr="value" displayExpr="name">
+  <dxi-data-grid-column
+    dataField="Task_Priority"
+    caption="Priority"
+    [hidingPriority]="5"
+  >
+    <dxo-data-grid-lookup
+      [dataSource]="priorities"
+      valueExpr="value"
+      displayExpr="name"
+    >
     </dxo-data-grid-lookup>
   </dxi-data-grid-column>
   <dxi-data-grid-column

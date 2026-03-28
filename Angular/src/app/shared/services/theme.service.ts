@@ -51,7 +51,6 @@ export class ThemeService {
   }
 
   applyBaseTheme(theme?: string): void {
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < document.styleSheets.length; i++) {
       const styleSheet = document.styleSheets[i];
       const href = styleSheet.href;
@@ -85,7 +84,6 @@ export class ThemeService {
   }
 
   applySwatchTheme(accent: ThemeSwatchAccent): void {
-    // eslint-disable-next-line @typescript-eslint/prefer-for-of
     for (let i = 0; i < document.styleSheets.length; i++) {
       const styleSheet = document.styleSheets[i];
       const href = styleSheet.href;
