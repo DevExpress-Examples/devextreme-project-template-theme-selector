@@ -3,6 +3,9 @@
         "stylelint-config-standard-scss",
         "eslint-config-devextreme/stylelintrc"
     ],
+    "rules": {
+        "at-rule-no-unknown": null
+    },
     "ignoreFiles": [
         "src/themes/generated/**"
     ]
