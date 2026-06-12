@@ -4,6 +4,7 @@ import {
   NgModule,
   Input,
   ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { ItemClickEvent as TreeViewItemClickEvent } from 'devextreme/ui/tree_view';
 import { ItemClickEvent as ToolbarItemClickEvent } from 'devextreme/ui/toolbar';
@@ -19,6 +20,7 @@ import { ScreenService } from '../../shared/services';
   standalone: false,
   selector: 'app-side-nav-inner-toolbar',
   templateUrl: './side-nav-inner-toolbar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./side-nav-inner-toolbar.component.scss'],
 })
 export class SideNavInnerToolbarComponent implements OnInit {

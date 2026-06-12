@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   standalone: false,
@@ -6,6 +6,7 @@ import { Component, NgModule } from '@angular/core';
   template: `
     <footer><ng-content></ng-content></footer>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./footer.component.scss'],
 })
 

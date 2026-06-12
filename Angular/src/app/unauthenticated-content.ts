@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { SingleCardModule } from 'src/app/layouts';
 
@@ -11,6 +11,7 @@ import { SingleCardModule } from 'src/app/layouts';
       <router-outlet></router-outlet>
     </app-single-card>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: [`
     :host {
       width: 100%;

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
@@ -12,6 +12,7 @@ const notificationText = 'We\'ve sent a link to reset your password. Check your 
   standalone: false,
   selector: 'app-reset-password-form',
   templateUrl: './reset-password-form.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./reset-password-form.component.scss'],
 })
 export class ResetPasswordFormComponent {

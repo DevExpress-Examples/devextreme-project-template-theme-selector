@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { DxFormModule } from 'devextreme-angular/ui/form';
@@ -10,6 +10,7 @@ import { AuthService } from '../../services';
 @Component({
   standalone: false,
   selector: 'app-change-passsword-form',
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './change-password-form.component.html',
 })
 export class ChangePasswordFormComponent implements OnInit {

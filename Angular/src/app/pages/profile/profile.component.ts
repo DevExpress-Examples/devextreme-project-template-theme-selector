@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   standalone: false,
   templateUrl: 'profile.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./profile.component.scss'],
 })
 

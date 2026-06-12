@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import 'devextreme/data/odata/store';
 import { DataService, Priority, Task } from 'src/app/shared/services/data.service';
 
 @Component({
   standalone: false,
   templateUrl: 'tasks.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [DataService],
 })
 

@@ -8,6 +8,7 @@ import {
   ElementRef,
   AfterViewInit,
   OnDestroy,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { ItemClickEvent } from 'devextreme/ui/tree_view';
 import { DxTreeViewModule, DxTreeViewComponent } from 'devextreme-angular/ui/tree-view';
@@ -18,6 +19,7 @@ import { navigation } from '../../../app-navigation';
   standalone: false,
   selector: 'app-side-navigation-menu',
   templateUrl: './side-navigation-menu.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./side-navigation-menu.component.scss'],
 })
 export class SideNavigationMenuComponent implements AfterViewInit, OnDestroy {

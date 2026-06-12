@@ -1,4 +1,4 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, ChangeDetectionStrategy } from '@angular/core';
 import { AuthService, ScreenService, AppInfoService } from './shared/services';
 import { ThemeService } from './shared/services/theme.service';
 
@@ -6,6 +6,7 @@ import { ThemeService } from './shared/services/theme.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   standalone: false,
 })
 export class AppComponent {

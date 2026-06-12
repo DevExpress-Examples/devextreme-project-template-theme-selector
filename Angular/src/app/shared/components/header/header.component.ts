@@ -5,6 +5,7 @@ import {
   Output,
   EventEmitter,
   OnInit,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
@@ -18,6 +19,7 @@ import { UserPanelModule } from '../user-panel/user-panel.component';
   standalone: false,
   selector: 'app-header',
   templateUrl: 'header.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DxSelectBoxModule, DxSelectBoxTypes } from 'devextreme-angular/ui/select-box';
@@ -9,6 +9,7 @@ import { type ThemeData, ThemeService } from '../../services/theme.service';
   standalone: false,
   selector: 'theme-selector',
   templateUrl: 'theme-selector.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./theme-selector.component.scss'],
 })
 export class ThemeSelectorComponent {

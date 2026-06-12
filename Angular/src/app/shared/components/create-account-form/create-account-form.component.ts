@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ValidationCallbackData } from 'devextreme-angular/common';
 import { DxFormModule } from 'devextreme-angular/ui/form';
@@ -11,6 +11,7 @@ import { AuthService } from '../../services';
   standalone: false,
   selector: 'app-create-account-form',
   templateUrl: './create-account-form.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./create-account-form.component.scss'],
 })
 export class CreateAccountFormComponent {

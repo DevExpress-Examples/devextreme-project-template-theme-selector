@@ -1,4 +1,4 @@
-import { Component, NgModule, Input } from '@angular/core';
+import { Component, NgModule, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
 
@@ -6,6 +6,7 @@ import { DxScrollViewModule } from 'devextreme-angular/ui/scroll-view';
   standalone: false,
   selector: 'app-single-card',
   templateUrl: './single-card.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./single-card.component.scss'],
 })
 export class SingleCardComponent {

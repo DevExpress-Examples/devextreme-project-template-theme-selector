@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { DxFormModule } from 'devextreme-angular/ui/form';
 import { DxLoadIndicatorModule } from 'devextreme-angular/ui/load-indicator';
@@ -10,6 +10,7 @@ import { AuthService } from '../../services';
   standalone: false,
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {

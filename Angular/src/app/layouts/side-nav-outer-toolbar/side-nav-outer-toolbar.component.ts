@@ -4,6 +4,7 @@ import {
   NgModule,
   Input,
   ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
 import { DxDrawerModule, DxDrawerTypes } from 'devextreme-angular/ui/drawer';
 import { DxScrollViewModule, DxScrollViewComponent } from 'devextreme-angular/ui/scroll-view';
@@ -17,6 +18,7 @@ import { ScreenService } from '../../shared/services';
   standalone: false,
   selector: 'app-side-nav-outer-toolbar',
   templateUrl: './side-nav-outer-toolbar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./side-nav-outer-toolbar.component.scss'],
 })
 export class SideNavOuterToolbarComponent implements OnInit {
